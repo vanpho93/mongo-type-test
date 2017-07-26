@@ -1,12 +1,9 @@
 import { Request, Response } from 'express';
 import User from '../../models/user';
-import Post from '../../models/post';
 
 const createPost = (req: Request, res: Response) => {
     const { userId, content } = req['body'];
-    const post = new Post({ content });
-    post.save()
-        .then(() => User.findByIdAndUpdate(userId, { $push: { posts: post } }))
+    User.createPost(userId, content)
         .then(() => {
             res.status(201);
             res.send({ message: 'Create post successfully' })
