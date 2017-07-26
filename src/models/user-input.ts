@@ -1,4 +1,6 @@
-export default interface UserInput {
-    email: String,
-    password: String
+interface UserInput {
+    email: String;
+    password: String;
 }
+
+export default UserInput;

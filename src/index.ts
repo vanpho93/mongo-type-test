@@ -5,6 +5,7 @@ import './startDatabase';
 import createUser from './controllers/user/createUser';
 import signIn from './controllers/user/signIn';
 import createPost from './controllers/post/createPost';
+import createComment from './controllers/comment/createComment';
 
 const jsonParser = bodyPaser.json();
 const app = express();
@@ -22,6 +23,8 @@ app.post('/api/user', jsonParser, createUser);
 app.post('/api/user/signin', jsonParser, signIn);
 
 app.post('/api/post', jsonParser, createPost);
+
+app.post('/api/comment', jsonParser, createComment);
 
 /*
 

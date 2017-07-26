@@ -1,7 +1,5 @@
 import { Schema, model } from 'mongoose';
 import Post from './post';
-import './comment';
-import './post';
 
 const UserSchema = new Schema({
     name: String,
