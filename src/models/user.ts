@@ -20,6 +20,15 @@ const UserSchema = new Schema({
     }]
 });
 
-const User = model('user', UserSchema);
+const UserMongo = model('user', UserSchema);
+
+class User extends UserMongo {
+    static signIn(email: String, password: String) :Promise<any> {
+        return User.find({ email, password })
+        .then(users => {
+            if (users.length !== 1) return Promise.reject(new Error('Sai thong tin dang nhap'));
+        });
+    }
+}
 
 export default User;

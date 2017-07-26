@@ -1,10 +1,7 @@
 import { Request, Response } from 'express';
 import User from '../../models/user';
+import UserInput from '../../models/user-input';
 
-interface UserInput {
-    email: String,
-    password: String
-}
 
 const createUser = (req: Request, res: Response) => {
     const { email, password } = req['body'] as UserInput;

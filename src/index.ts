@@ -1,7 +1,9 @@
 import * as express from 'express';
 import * as bodyPaser from 'body-parser';
 import './startDatabase';
+
 import createUser from './controllers/user/createUser';
+import signIn from './controllers/user/signIn';
 
 const jsonParser = bodyPaser.json();
 const app = express();
@@ -16,6 +18,7 @@ app.listen(3000, () => console.log('Server started'));
 
 app.post('/api/user', jsonParser, createUser);
 
+app.post('/api/user/signin', jsonParser, signIn);
 
 /*
 
