@@ -4,6 +4,7 @@ import './startDatabase';
 
 import createUser from './controllers/user/createUser';
 import signIn from './controllers/user/signIn';
+import createPost from './controllers/post/createPost';
 
 const jsonParser = bodyPaser.json();
 const app = express();
@@ -19,6 +20,8 @@ app.listen(3000, () => console.log('Server started'));
 app.post('/api/user', jsonParser, createUser);
 
 app.post('/api/user/signin', jsonParser, signIn);
+
+app.post('/api/post', jsonParser, createPost);
 
 /*
 
