@@ -3,6 +3,7 @@ import 'mocha';
 import User from '../../src/models/user';
 
 describe('Sign up test', () => {
+
     it('Static method signUp can add new user', async () => {
         await User.signUp('vanpho01@gmail.com', '123', 'Pho Nguyen');
         const user = await User.findOne() as User;
@@ -21,8 +22,8 @@ describe('Sign up test', () => {
     it('Create user using save() method', async () => {
         const pho = new User({ name: 'Pho', password: '123', email: 'vanpho01@gmail.com' });
         await pho.save();
-        const user = await User.findOne();
-        assert(user['email'] === pho['email']);
+        const user = await User.findOne() as User;
+        assert(user.email === pho.email);
     });
 
     it('Cannot create user without email', async () => {

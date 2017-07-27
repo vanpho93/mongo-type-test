@@ -35,12 +35,6 @@ class User extends UserMongoose {
         });
     }
 
-    static createPost(userId: String, content: String) {
-        const post = new Post({ content });
-        return post.save()
-        .then(() => User.findByIdAndUpdate(userId, { $push: { posts: post } }))
-    }
-
     static signUp(email: String, password: String, name: String) {
         const user = new User({ email, password, name });
         return user.save();
