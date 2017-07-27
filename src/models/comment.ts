@@ -8,12 +8,15 @@ const CommentSchema = new Schema({
         type: Schema.Types.ObjectId, 
         ref: 'user' 
     }
-});
+}, { autoIndex: false });
 
 //Create class and exports
 const CommentMongoose = model('comment', CommentSchema);
 
 class Comment extends CommentMongoose {
+    content: String;
+    user: User;
+    
     static createComment(idUser: String, idPost: String, content: String) {
         const user = new User({ _id: idUser });
         const post = new Post({ _id: idPost });

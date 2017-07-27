@@ -20,6 +20,6 @@
   },
   "scripts": {
     "test": "nodemon --exec 'mocha dist/test --recursive'",
-    "start": "nodemon dist"
+    "start": "nodemon dist/src"
   }
 }

@@ -1,4 +1,5 @@
 import { Schema, model } from 'mongoose';
+import Comment from './comment';
 
 const PostSchema = new Schema({
     content: String,
@@ -6,8 +7,13 @@ const PostSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'comment'
     }]
-});
+}, { autoIndex: false });
 
-const Post = model('post', PostSchema);
+const PostMongoose = model('post', PostSchema);
+
+class Post extends PostMongoose {
+    content: String;
+    comment: Comment[];
+}
 
 export default Post;

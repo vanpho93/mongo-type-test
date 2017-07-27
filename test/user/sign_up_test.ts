@@ -2,25 +2,19 @@ import * as assert from 'assert';
 import 'mocha';
 import User from '../../src/models/user';
 
-interface UserInfo {
-    name: String;
-    email: String;
-    password: String;
-}
-
 describe('Sign up test', () => {
     it('Static method signUp can add new user', async () => {
         await User.signUp('vanpho01@gmail.com', '123', 'Pho Nguyen');
-        const user = await User.findOne({}) as User;
+        const user = await User.findOne() as User;
         assert(user.name === 'Pho Nguyen');
     });
 
-    xit('Cannot create user with email that has exist', async () => {
+    it('Cannot create user with email that has exist', async () => {
         try {
             await User.signUp('vanpho01@gmail.com', '123', 'Pho Nguyen');
             await User.signUp('vanpho01@gmail.com', '234', 'Nguyen Pho');
         } catch (e) {
-            console.log(e.toString());
+            assert(e.code == 11000);
         }
     });
 
@@ -29,17 +23,6 @@ describe('Sign up test', () => {
         await pho.save();
         const user = await User.findOne();
         assert(user['email'] === pho['email']);
-    });
-
-    it('Cannot create user with email that has exist', async () => {
-        try {
-            const pho1 = new User({ name: 'Pho', password: '123', email: 'vanpho01@gmail.com' });
-            await pho1.save();
-            const pho2 = new User({ name: 'Pho', password: '123', email: 'vanpho01@gmail.com' });
-            await pho2.save();
-        } catch (e) {
-            console.log(e.toString());
-        }
     });
 
     it('Cannot create user without email', async () => {

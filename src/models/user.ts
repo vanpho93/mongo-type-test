@@ -17,11 +17,17 @@ const UserSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'user'
     }]
-});
+}, { autoIndex: false });
 
 const UserMongoose = model('user', UserSchema);
 
 class User extends UserMongoose {
+    posts: Post[];
+    email: String;
+    name: String;
+    friends: User[];
+    password: String;
+
     static signIn(email: String, password: String) :Promise<any> {
         return User.find({ email, password })
         .then(users => {
