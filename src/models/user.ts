@@ -6,7 +6,7 @@ const UserSchema = new Schema({
     email: {
         type: String,
         required: true,
-        unique: true,
+        unique: true
     },
     password: String,
     posts: [{
@@ -22,10 +22,6 @@ const UserSchema = new Schema({
 const UserMongoose = model('user', UserSchema);
 
 class User extends UserMongoose {
-    name: String;
-    email: String;
-    posts: Array<any>;
-
     static signIn(email: String, password: String) :Promise<any> {
         return User.find({ email, password })
         .then(users => {
