@@ -1,9 +1,13 @@
 import { Request, Response } from 'express';
 import User from '../../models/user';
-import UserInput from '../../models/user-input';
+
+interface SignInInfo {
+    email: String;
+    password: String;
+}
 
 const signIn = (req: Request, res: Response) => {
-    const { email, password } = req['body'] as UserInput;
+    const { email, password } = req['body'] as SignInInfo;
     User.signIn(email, password)
     .then(() => {
         res.status(200);

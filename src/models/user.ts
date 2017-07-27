@@ -22,6 +22,10 @@ const UserSchema = new Schema({
 const UserMongoose = model('user', UserSchema);
 
 class User extends UserMongoose {
+    name: String;
+    email: String;
+    posts: Array<any>;
+
     static signIn(email: String, password: String) :Promise<any> {
         return User.find({ email, password })
         .then(users => {
@@ -33,6 +37,11 @@ class User extends UserMongoose {
         const post = new Post({ content });
         return post.save()
         .then(() => User.findByIdAndUpdate(userId, { $push: { posts: post } }))
+    }
+
+    static signUp(email: String, password: String, name: String) {
+        const user = new User({ email, password, name });
+        return user.save();
     }
 }
 
