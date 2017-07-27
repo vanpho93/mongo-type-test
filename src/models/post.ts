@@ -20,6 +20,7 @@ class Post extends PostMongoose {
         const post = new Post({ content });
         return post.save()
         .then(() => User.findByIdAndUpdate(userId, { $push: { posts: post } }))
+        .then(() => post._id);
     }
 }
 
