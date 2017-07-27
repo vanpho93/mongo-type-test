@@ -14,7 +14,7 @@ const PostMongoose = model('post', PostSchema);
 
 class Post extends PostMongoose {
     content: String;
-    comment: Comment[];
+    comments: Comment[];
 
     static createPost(userId: String, content: String) {
         const post = new Post({ content });
