@@ -17,8 +17,6 @@ interface UserInfo {
     password: String;
 }
 
-
-
 function getRandomUserInfo(): UserInfo {
     const name = faker.name.findName();
     const email = faker.internet.email();
