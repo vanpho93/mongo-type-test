@@ -4,6 +4,7 @@
 
 import * as faker from 'faker';
 import User from '../models/user';
+import Post from '../models/post';
 // Create 10 user here
 
 interface UserInfo {
@@ -27,10 +28,17 @@ export function createUsers(numberOfUser: Number) {
     return User.insertMany(arrUser);
 }
 
-export async function createPosts(numberOfPostPerUser: Number) {
+export async function createPosts() {
     try {
         const users = await User.find();
-        
+        for(let i = 0; i < users.length; i++) {
+            const postNumber = Math.random() * 5;
+            const userId = users[i]._id;
+            for (let j = 0; j < postNumber; j++) {
+                const content = faker.lorem.paragraph(5);
+                await Post.createPost(userId, content);
+            }
+        }
     } catch (error) {
         
     }
