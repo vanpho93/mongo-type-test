@@ -27,4 +27,11 @@ export function createUsers(numberOfUser: Number) {
     return User.insertMany(arrUser);
 }
 
-
+export async function createPosts(numberOfPostPerUser: Number) {
+    try {
+        const users = await User.find();
+        
+    } catch (error) {
+        
+    }
+}
