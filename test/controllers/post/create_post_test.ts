@@ -6,7 +6,7 @@ import app from '../../../src/app';
 import * as request from 'supertest';
 import 'mocha';
 
-describe.only('Create Post test', () => {
+describe('Create Post test', () => {
     beforeEach(async () => {
         await createUsers(1);
     });

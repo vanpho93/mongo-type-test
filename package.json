@@ -14,7 +14,8 @@
     "ejs": "^2.5.6",
     "express": "^4.15.3",
     "faker": "^4.1.0",
-    "mongoose": "4.10.8"
+    "mongoose": "4.10.8",
+    "reload": "^2.2.0"
   },
   "devDependencies": {
     "mocha": "^3.4.2",
@@ -23,6 +24,6 @@
   },
   "scripts": {
     "test": "nodemon --exec 'mocha dist/test --recursive -R min'",
-    "start": "nodemon dist/src"
+    "start": "nodemon dist/src -e js,ejs"
   }
 }
