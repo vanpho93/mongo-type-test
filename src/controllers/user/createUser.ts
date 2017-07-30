@@ -10,7 +10,7 @@ interface NewUserInfo {
 const createUser = (req: { body: Object }, res: Response) => {
     const { email, password, name } = req.body as NewUserInfo;
     User.signUp(email, password, name)
-    .then(() => res.status(200).send({ message: 'Sign up successfully.' }))
+    .then(() => res.status(201).send({ message: 'Sign up successfully.' }))
     .catch(() => res.status(400).send({ message: 'Please choose another email.' }));
 }
 

@@ -41,7 +41,7 @@ async function createPostsForAllUser() {
         for (let j = 0; j < postNumber; j++) {
             const id = users[i]._id;
             const content = faker.lorem.paragraph(5);
-            await User.createPost(id, content);
+            await Post.createPost(id, content);
         }
     }
 }

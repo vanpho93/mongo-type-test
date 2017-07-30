@@ -1,16 +1,14 @@
 import { Request, Response } from 'express';
-import User from '../../models/user';
+import Post from '../../models/post';
 
 const createPost = (req: Request, res: Response) => {
     const { userId, content } = req['body'];
-    User.createPost(userId, content)
+    Post.createPost(userId, content)
         .then(() => {
-            res.status(201);
-            res.send({ message: 'Create post successfully' })
+            res.status(201).send({ message: 'Create post successfully' })
         })
         .catch(err => {
-            res.status(500);
-            res.send({ message: 'Internal server error' });
+            res.status(500).send({ message: 'Internal server error' });
         });
 }
 

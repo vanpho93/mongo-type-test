@@ -1,6 +1,6 @@
 import * as assert from 'assert';
 import User from '../../../src/models/user';
-import app from '../../../src/index';
+import app from '../../../src/app';
 import * as request from 'supertest';
 import 'mocha';
 
