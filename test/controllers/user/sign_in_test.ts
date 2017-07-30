@@ -4,7 +4,7 @@ import app from '../../../src/index';
 import * as request from 'supertest';
 import 'mocha';
 
-describe.only('Test sign in static function', () => {
+describe('Test sign in static function', () => {
 
     beforeEach(async () => {
         // Create a new person
