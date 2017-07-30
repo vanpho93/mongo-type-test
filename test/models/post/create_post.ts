@@ -1,6 +1,6 @@
 import * as assert from 'assert';
-import Post from '../../src/models/post';
-import User from '../../src/models/user';
+import Post from '../../../src/models/post';
+import User from '../../../src/models/user';
 import 'mocha';
 
 describe('Post creation test', () => {

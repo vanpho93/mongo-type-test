@@ -1,6 +1,6 @@
 import * as assert from 'assert';
 import 'mocha';
-import User from '../../src/models/user';
+import User from '../../../src/models/user';
 
 describe('Sign in test', () => {
     it('User can sign in', async () => {

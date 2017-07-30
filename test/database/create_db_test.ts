@@ -7,7 +7,7 @@ import { createUsers, createPosts, createComments } from '../../src/playground/c
 import 'mocha';
 
 
-describe.only('Create database', () => {
+xdescribe('Create database', () => {
     it('Create 10 users', async () => {
         await createUsers(10);
         const count = await User.count({ });

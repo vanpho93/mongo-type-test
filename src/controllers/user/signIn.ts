@@ -6,8 +6,8 @@ interface SignInInfo {
     password: String;
 }
 
-const signIn = (req: Request, res: Response) => {
-    const { email, password } = req['body'] as SignInInfo;
+const signIn = (req: { body: { email: String, password: String } }, res: Response) => {
+    const { email, password } = req.body as SignInInfo;
     User.signIn(email, password)
     .then(() => {
         res.status(200);

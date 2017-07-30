@@ -1,9 +1,9 @@
 import * as assert from 'assert';
 import 'mocha';
 
-import Comment from '../../src/models/comment';
-import Post from '../../src/models/post';
-import User from '../../src/models/user';
+import Comment from '../../../src/models/comment';
+import Post from '../../../src/models/post';
+import User from '../../../src/models/user';
 
 describe('Create comment', () => {
     it('Can create comment using static method', async () => {

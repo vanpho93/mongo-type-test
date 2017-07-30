@@ -1,6 +1,6 @@
 import * as express from 'express';
 import * as bodyPaser from 'body-parser';
-import './startDatabase';
+// import './startDatabase';
 
 import createUser from './controllers/user/createUser';
 import signIn from './controllers/user/signIn';
@@ -16,13 +16,15 @@ app.use(express.static('./public'));
 
 app.get('/', (req, res) => res.render('home'));
 
-app.listen(3000, () => console.log('Server started'));
+// app.listen(3000, () => console.log('Server started'));
 
 app.post('/api/user', jsonParser, createUser);
 
 app.post('/api/user/signin', jsonParser, signIn);
 
 app.post('/api/post', jsonParser, createPost);
+
+export default app;
 
 // app.post('/api/comment', jsonParser, createComment);
 
