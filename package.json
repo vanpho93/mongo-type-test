@@ -24,6 +24,7 @@
   },
   "scripts": {
     "test": "nodemon --exec 'mocha dist/test --recursive -R min'",
-    "start": "nodemon dist/src -e js,ejs"
+    "start": "nodemon dist/src -e js,ejs",
+    "server": "nodemon server -e ejs js"
   }
 }
